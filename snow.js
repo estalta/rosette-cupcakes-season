@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'img/snowflake3.png'
     ];
     // Define how many snowflakes you want (e.g., 30 instead of 18)
-    const numberOfSnowflakes = 30;
+    const numberOfSnowflakes = 50;
 
     function createSnowflake() {
         const flake = document.createElement('div');
@@ -70,3 +70,4 @@ document.addEventListener('DOMContentLoaded', () => {
         createSnowflake();
     }
 });
+
