@@ -1,0 +1,350 @@
+/* Mobile first - base styles */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0; 
+}
+
+/* modern web design often utilizes system font stacks or web fonts like "Roboto" or "Open Sans",
+   which can offer a more contemporary aesthetic and are also optimized for mobile.  */
+
+html {
+    /* padding-top: 0.1rem; */
+}
+   
+body {
+    font-family: 'Verdana', sans-serif;
+    font-weight:900;
+    color: white;
+    padding: 10px;
+    display: flex;  
+    flex-direction: column;              
+    align-items: center;
+    gap: 1rem;          
+    /* min-height: 100vh; Removed because it creates a ver. scroll bar */
+    position: relative;
+    /* Ensure content is positioned above the pseudo-element if needed */
+    z-index: 1;
+}
+
+body::before {
+    content: "";
+    background-image: url("img/jesus-creche.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* Value from 0.0 (transparent) to 1.0 (opaque) */
+    opacity: 0.7;
+    /* Place the pseudo-element behind the content */
+    z-index: -1;
+}
+
+.christmas-greetings {
+    text-align: center;
+    background-color: transparent;
+}
+
+body > img {
+    /* Adjust this value as needed to desired size */
+    width: 3.75rem; 
+    height: auto;
+    /* Optional: Prevents the image from becoming huge on very large screens */
+    max-width: 100px;
+    margin-top: 20px;
+    margin-left: 6px;
+}
+
+body > p {
+    font-family: roboto;
+    font-size: 0.8rem;
+    width: 20rem;
+    text-align: center;
+    background-color: #aaa;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+h1 {
+    font-family: cursive;
+    font-size: 1.25rem;
+    margin: 0;
+    /* background-color: #8d7760;
+    padding: 5px;
+    border-radius: 5px; */
+}
+
+h3 {
+    font-size: 0.8rem;
+}
+
+span {
+    font-weight: 700;
+}
+
+footer {
+    width: 21rem;
+    background-color: #8d7760;
+    padding: 0.5rem;
+    border-radius: 10px;
+    text-align: center;
+}
+
+footer .copyright {
+    font-style: italic;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #fff;
+}
+
+.whatsapp-number {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.whatsapp-number a,
+.instagram-link a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding: 3px;
+    text-decoration: none;
+    color: inherit;
+    /* outline: 2px solid green; */
+    /* ADD THIS: */
+    /* Prevents items from shrinking below their content size */
+    flex-shrink: 0;
+    /* Forces the anchor to adopt the maximum required width of its contents */ 
+    width: max-content; 
+    background-color: #aaa;
+    padding: 10px; 
+    border-radius: 10px;       
+}
+
+.whatsapp-number img,
+.instagram-link img {
+    /* Adjust this value as needed to desired size */
+    width: 1.9rem; 
+    height: auto;
+    /* Optional: Prevents the image from becoming huge on very large screens */
+    max-width: 30px;
+    /* outline: 2px solid red; */
+}
+
+.whatsapp-number span,
+.instagram-link span {
+    font-size: 0.75rem;
+}
+
+.cupcakes {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    /* margin: 5px; */
+}
+
+.cup-1 {
+    max-width: 20%;
+    /* Name, duration, timing function, iteration count */
+    animation: cup-1 4s linear infinite;
+}
+
+.cup-2 {
+    max-width: 20%;
+    /* Name, duration, timing function, iteration count */
+    animation: cup-2 2s linear infinite;
+}
+
+@keyframes cup-1 {
+    from {
+        transform: rotate(0deg);
+    }
+      to {
+        transform: rotate(360deg); /* Counterclockwise rotation */
+    }
+}
+
+@keyframes cup-2 {
+    50% {
+        transform: rotate(90deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+/* FALLING SNOWFLAKES */
+
+.snow-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none; 
+    z-index: 9999;
+}
+
+.snowflake {
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    animation: falling-snow linear infinite;
+    z-index: 2;
+    /* We will use inline styles/JS to set the image URL, width, duration, etc. */
+}
+
+/* Keep your @keyframes falling-snow (it's perfect) */
+@keyframes falling-snow {
+    0% {
+        /* Start above viewport, centered horizontally */
+        transform: translateY(-100px) translateX(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1; /* Fade in quickly */
+    }
+    /* Add intermediate steps to move left and right */
+    30% {
+        transform: translateY(30vh) translateX(-50px) rotate(120deg);
+    }
+    50% {
+        transform: translateY(50vh) translateX(50px) rotate(180deg);
+    }
+    70% {
+        transform: translateY(70vh) translateX(-50px) rotate(240deg);
+    }
+    100% {
+        /* End below the viewport, back to center or slightly off */
+        transform: translateY(110vh) translateX(0px) rotate(360deg); 
+        opacity: 0; /* Fade out as it leaves the screen */
+    }
+}
+
+/* MEDIA QUERIES */
+
+/* Mobiles (Large) / Tables (Portrait) styles */
+/* @media screen and (min-width: 686px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    h3 {
+        font-size: 1.3rem;
+    }
+
+    body > img {
+        width: 4.5rem; 
+        height: auto;
+        max-width: 100px;
+    }
+
+    body > p {
+        font-size: 0.9rem;
+        width: 80%;
+    }
+
+    .whatsapp-number {
+        display: flex;
+        flex-direction: row;
+        gap: 30px;
+    }
+
+    .whatsapp-number img,
+    .instagram-link img {
+        width: 2.3rem; 
+        height: auto;
+        max-width: 50px;
+    }
+
+    .cupcakes {
+        gap: 195px
+    }
+
+    footer {
+        width: 90%;
+        background-color: #8d7760;
+        padding: 0.5rem;
+        border-radius: 10px;
+        text-align: center;
+    } 
+
+    footer .copyright {
+        font-size: 0.85rem;
+    }
+} */
+
+/* Tablets (Landscape) / Laptops (Small) styles */
+/* @media screen and (min-width: 900px) {
+    h1 {
+        font-size: 2.6rem;
+    }
+
+    h3 {
+        font-size: 1.7rem;
+    }
+
+    body > img {
+        width: 4.7rem; 
+        height: auto;
+        max-width: 100px;
+    }
+
+    body > p {
+        font-size: 1rem;
+        width: 90%;
+    }
+
+    .whatsapp-number {
+        display: flex;
+        gap: 40px;
+        margin: 15px;
+    }
+
+    .instagram-link {
+        margin: 15px;
+    }
+
+    .whatsapp-number img,
+    .instagram-link img {
+        width: 2.5rem; 
+        height: auto;
+        max-width: 50px;
+    }
+
+    .cupcakes {
+        gap: 230px
+    }
+
+    footer {
+        width: 95%;
+        background-color: #8d7760;
+        padding: 0.5rem;
+        margin: 15px;
+        border-radius: 10px;
+        text-align: center;
+    } 
+
+    footer .copyright {
+        font-size: 1rem;
+    }
+} */
+
+
+/* Desktops styles */
+@media screen and (min-width: 1200px) {
+    
+}
+
+/* Orientation sample */
+@media screen and (min-width: 768px) and (orientation: landscape) {
+
+}

@@ -1,0 +1,218 @@
+/* Mobile first - base styles */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0; 
+}
+
+/* modern web design often utilizes system font stacks or web fonts like "Roboto" or "Open Sans",
+   which can offer a more contemporary aesthetic and are also optimized for mobile.  */
+body {
+    font-family: 'Verdana', sans-serif;
+    color: #444;
+    padding: 0.5rem;
+    display: flex;  
+    flex-direction: column;              
+    justify-content: center;      
+    align-items: center;
+    gap: 1rem;          
+    min-height: 100vh;                          
+}
+
+body > img {
+    max-width: 50px;    
+    height: auto;
+}
+
+h1 {
+    font-family: cursive;
+    font-size: 20px;
+    line-height: .25em;
+}
+
+h3 {
+    font-family: cursive;
+    font-size: 16px;
+}
+
+p {
+    font-family: roboto;
+    font-size: 14px;
+    width: 300px;
+}
+
+form {
+    background-color: #eee;
+    width: 90%;
+    padding: 2rem;
+    margin: 1rem auto;
+    border-radius: 15px;
+}
+
+form h3 {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    
+}
+
+label {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+input,
+textarea {
+    outline: none;
+    font-size: 1rem;
+    background: white;
+    color: #444;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 1ex 2ex;
+}
+
+textarea {
+  resize: none;
+}
+
+input:focus,
+textarea:focus {
+    border: 1px solid #009BCe;
+}
+
+button {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    background-color: #8B7965;
+    color: white;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+span {
+    font-weight: 700;
+}
+
+.whatsapp-number a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: inherit;        /* Optional: inherit text color */
+}
+
+.whatsapp-number img {
+  max-width: 30px;      
+  height: auto;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 1.5rem;
+}
+
+/* MEDIA QUERIES */
+
+/* Mobiles (Large) / Tables (Portrait) styles */
+@media screen and (min-width: 576px) {
+    body {
+        font-size: 0.75rem;
+        /* background-color: lightgreen; */
+    }
+
+    h1 {
+        font-size: 2.5em;
+        line-height: .25em;
+        margin-top: 10px;
+    }
+
+    h3 {
+        font-size: 1.8em;
+    }
+
+    p {
+        width: 70%;
+        padding-left: 30px;
+    }
+
+    form {
+        width: 70%;
+        /* padding: 1rem; */
+    }
+}
+
+/* Tablets (Landscape) / Laptops (Small) styles */
+@media screen and (min-width: 992px) {
+    body {
+        font-size: 0.75rem;
+        /* background-color: lightblue; */
+    }
+
+    h1 {
+        font-size: 2.5em;
+        line-height: .25em;
+        margin-top: 10px;
+    }
+
+    h3 {
+        font-size: 1.8em;
+    }
+
+    p {
+        width: 60%;
+        padding-left: 40px;
+    }
+
+    span {
+        font-weight: normal;
+    }
+
+    form {
+        width: 60%;
+    }
+}
+
+/* Desktops styles */
+@media screen and (min-width: 1200px) {
+    body {
+        font-size: 0.75rem;
+        /* background-color: lightpink; */
+    }
+
+    h1 {
+        font-size: 3em;
+        line-height: .25em;
+        margin-top: 10px;
+    }
+
+    h3 {
+        font-size: 2.1em;
+    }
+
+    p {
+        width: 60%;
+        padding-left: 80px;
+    }
+
+    span {
+        font-weight: normal;
+    }
+
+    form {
+        width: 60%;
+    }
+}
+
+/* Orientation sample */
+@media screen and (min-width: 768px) and (orientation: landscape) {
+
+}
