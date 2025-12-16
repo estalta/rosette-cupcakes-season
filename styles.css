@@ -30,7 +30,7 @@ body {
 
 body::before {
     content: "";
-    background-image: url("img/jesus-creche.png");
+    background-image: url("img/thin-image.png");
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -56,8 +56,8 @@ body > img {
     height: auto;
     /* Optional: Prevents the image from becoming huge on very large screens */
     max-width: 100px;
-    margin-top: 20px;
-    margin-left: 6px;
+    margin-top: 18px;
+    margin-left: -3px;
 }
 
 body > p {
